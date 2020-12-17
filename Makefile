@@ -3,7 +3,7 @@ O_DIR=obj
 B_DIR=bin
 
 game: $(O_DIR)/main.o $(O_DIR)/Game.o $(O_DIR)/TextureManager.o $(O_DIR)/GameObject.o
-	g++ $(O_DIR)/main.o $(O_DIR)/Game.o $(O_DIR)/TextureManager.o $(O_DIR)/GameObject.o -o $(B_DIR)//game `pkg-config --cflags --libs sdl2`
+	g++ $(O_DIR)/main.o $(O_DIR)/Game.o $(O_DIR)/TextureManager.o $(O_DIR)/GameObject.o -o $(B_DIR)/game `pkg-config --cflags --libs sdl2`
 
 $(O_DIR)/main.o: $(S_DIR)/main.cpp
 	g++ -c $(S_DIR)/main.cpp `pkg-config --cflags --libs sdl2` -o $(O_DIR)/main.o
