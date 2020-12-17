@@ -1,34 +1,20 @@
 #include "GameObject.h"
 #include "TextureManager.h"
 
-GameObject::GameObject(const char *filename, SDL_Renderer *rend){
+GameObject::GameObject(const char *filename, SDL_Renderer *rend, SDL_Rect src, SDL_Rect dst){
     renderer = rend;
-    texture = TextureManager::LoadTexture(filename, rend);
+    texture = TextureManager::loadTexture(filename, rend);
+
+    srcRect = src;
+    dstRect = dst;
 }
 
 void GameObject::update() {
-    xpos = 0;
-    ypos = 0;
-
-    srcRect.h = 32;
-    srcRect.w = 32;
-    srcRect.x = 0;
-    srcRect.y = 0;
-
-    dstRect.h = 64;
-    dstRect.w = 64;
-    dstRect.x = 0;
-    dstRect.y = 0;
-
-    /*
-    
-    srcRect.h = 32;
-    srcRect.w = 32;
-    destRect.h = 64;
-    destRect.w = 64;
-    */
+    dstRect.x++;
 }
 
 void GameObject::render() {
     SDL_RenderCopy(renderer, texture, &srcRect, &dstRect);
 }
+
+
