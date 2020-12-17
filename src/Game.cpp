@@ -2,8 +2,8 @@
 #include "TextureManager.h"
 #include "GameObject.h"
 
-GameObject *player;
-
+GameObject *enemy;
+GameObject *ship;
 
 void Game::init(const char *title, int pos_x, int pos_y, int w, int h, bool isfullscreen) {
     int flags = 0;
@@ -25,7 +25,9 @@ void Game::init(const char *title, int pos_x, int pos_y, int w, int h, bool isfu
     {
         isrunning = false;
     }
-    player = new GameObject("Assets/spritesheets/enemy-big.bmp", renderer);
+
+    enemy = new GameObject("Assets/spritesheets/enemy-big.bmp", renderer, TextureManager::createRect(), TextureManager::createRect(64, 64, 0, 0));
+    ship = new GameObject("Assets/spritesheets/ship.bmp", renderer, TextureManager::createRect(24, 16, 0, 0), TextureManager::createRect(24, 16, 10, 70));
     
 }
 void Game::handleevents() {
@@ -42,11 +44,13 @@ void Game::handleevents() {
     }
 }
 void Game::update() {
-    player->update();
+    enemy->update();
+    ship->update();
 }
 void Game::render() {
     SDL_RenderClear(renderer);
-    player->render();
+    enemy->render();
+    ship->render();
     SDL_RenderPresent(renderer);
 }
 void Game::clean() {
