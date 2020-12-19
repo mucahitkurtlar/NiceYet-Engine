@@ -9,7 +9,23 @@ GameObject::GameObject(const char *filename, SDL_Rect src, SDL_Rect dst){
 }
 
 void GameObject::update() {
-    dstRect.x++;
+    const Uint8 *state = SDL_GetKeyboardState(NULL);
+    if (state[SDL_SCANCODE_A])
+    {
+        dstRect.x--;
+    }
+    if (state[SDL_SCANCODE_D])
+    {
+        dstRect.x++;
+    }
+    if (state[SDL_SCANCODE_W])
+    {
+        dstRect.y--;;
+    }
+    if (state[SDL_SCANCODE_S])
+    {
+        dstRect.y++;
+    }
 }
 
 void GameObject::render() {
