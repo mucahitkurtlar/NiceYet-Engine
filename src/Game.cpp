@@ -4,6 +4,7 @@
 
 SDL_Renderer *Game::renderer = nullptr;
 
+GameObject *backgrnd;
 GameObject *enemy;
 GameObject *ship;
 
@@ -28,6 +29,8 @@ void Game::init(const char *title, int pos_x, int pos_y, int w, int h, bool isfu
         isrunning = false;
     }
 
+
+    backgrnd = new GameObject("Assets/backgrounds/desert-backgorund.bmp", TextureManager::createRect(272, 256), TextureManager::createRect(544, 512, 0, 0));
     enemy = new GameObject("Assets/spritesheets/enemy-big.bmp", TextureManager::createRect(), TextureManager::createRect(64, 64, 0, 0));
     ship = new GameObject("Assets/spritesheets/ship.bmp", TextureManager::createRect(24, 16, 0, 0), TextureManager::createRect(24, 16, 10, 70));
     
@@ -51,6 +54,7 @@ void Game::update() {
 }
 void Game::render() {
     SDL_RenderClear(renderer);
+    backgrnd->render();
     enemy->render();
     ship->render();
     SDL_RenderPresent(renderer);

@@ -1,8 +1,8 @@
 #include "Game.h"
 
 #define FPS_LIMIT 30
-#define WINDOW_WIDTH 640
-#define WINDOW_HEIGHT 480
+#define WINDOW_WIDTH 512
+#define WINDOW_HEIGHT 544
 
 Game *game = nullptr;
 
