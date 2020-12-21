@@ -17,3 +17,7 @@ SDL_Rect TextureManager::createRect(int h, int w, int x,int y) {
 
     return temprect;
 }
+
+void TextureManager::draw(SDL_Texture *texture, SDL_Rect src, SDL_Rect dst) {
+    SDL_RenderCopy(Game::renderer, texture, &src, &dst);
+}
