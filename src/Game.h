@@ -1,5 +1,4 @@
-#ifndef Game_h
-#define Game_h
+#pragma once
 
 #include <iostream>
 #include "SDL.h"
@@ -25,5 +24,3 @@ public:
     void fitfps(int fpslimit);
 
 };
-
-#endif
